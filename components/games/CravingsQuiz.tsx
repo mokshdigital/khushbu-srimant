@@ -21,7 +21,7 @@ export const CravingsQuiz: React.FC<Props> = ({ onComplete, onBack }) => {
     setSelectedOption(option);
     const correct = option === CRAVING_QUESTIONS[currentIndex].answer;
     setIsCorrect(correct);
-    
+
     if (correct) {
       setScore(prev => prev + 1);
     }
@@ -64,20 +64,20 @@ export const CravingsQuiz: React.FC<Props> = ({ onComplete, onBack }) => {
 
   return (
     <div className="flex flex-col h-full">
-      <div className="flex justify-between items-center mb-6">
+      <div className="flex justify-between items-center mb-3">
         <h2 className="text-xl font-bold text-orange-600">Craving {currentIndex + 1}/{CRAVING_QUESTIONS.length}</h2>
         <button onClick={onBack} className="text-gray-400">Exit</button>
       </div>
 
       <div className="flex-1 flex flex-col">
-        <div className="bg-white p-6 rounded-2xl shadow-sm border border-orange-100 mb-8 min-h-[120px] flex items-center justify-center text-center">
-           <p className="text-lg font-medium text-gray-800">{currentQuestion.question}</p>
+        <div className="bg-white p-5 rounded-2xl shadow-sm border border-orange-100 mb-4 flex items-center justify-center text-center">
+          <p className="text-lg font-medium text-gray-800">{currentQuestion.question}</p>
         </div>
 
         <div className="space-y-3">
           {currentQuestion.options.map((option, idx) => {
             let buttonStyle = "bg-white border-2 border-gray-100 text-gray-700 hover:border-orange-200";
-            
+
             // Logic for showing correct/incorrect colors after selection
             if (selectedOption) {
               if (option === currentQuestion.answer) {

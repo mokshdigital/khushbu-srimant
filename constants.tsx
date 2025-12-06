@@ -68,9 +68,30 @@ export const SCRAMBLE_WORDS: ScrambleWord[] = [
 ];
 
 export const CRAVING_QUESTIONS: CravingQuestion[] = [
-  { id: 1, question: "What is Khushbu's #1 late night craving?", options: ["Ice Cream", "Pani Puri", "Pickles", "Chocolate"], answer: "Pani Puri" },
-  { id: 2, question: "Which fruit can she not stand right now?", options: ["Banana", "Papaya", "Apple", "Mango"], answer: "Papaya" },
-  { id: 3, question: "Spicy or Sweet?", options: ["Spicy 🌶️", "Sweet 🧁", "Sour 🍋", "Salty 🧂"], answer: "Spicy 🌶️" },
+  {
+    id: 1,
+    question: "What is Khushbu's #1 late night craving?",
+    options: ["Ice Cream", "Pani Puri", "Cold Coco", "Chocolate"],
+    answer: "Cold Coco"
+  },
+  {
+    id: 2,
+    question: "What is Khushbu's weekend craving?",
+    options: ["Pani Puri", "Pizza", "Dosa", "Chaat"],
+    answer: "Pani Puri"
+  },
+  {
+    id: 3,
+    question: "Craving but something she cannot eat?",
+    options: ["Ice Cream", "Spicy Food", "Coffee", "Chocolate"],
+    answer: "Ice Cream"
+  },
+  {
+    id: 4,
+    question: "Which fruit can she not stand right now?",
+    options: ["Banana", "Papaya", "Apple", "Mango"],
+    answer: "Papaya"
+  },
 ];
 
 export const GARBA_SONGS: GarbaSong[] = [

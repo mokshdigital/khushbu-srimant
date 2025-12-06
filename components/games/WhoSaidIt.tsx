@@ -17,7 +17,7 @@ export const WhoSaidIt: React.FC<Props> = ({ onComplete, onBack }) => {
   const handleAnswer = (answer: 'Mom' | 'Dad') => {
     const isCorrect = answer === WHO_SAID_IT_QUESTIONS[currentIndex].answer;
     if (isCorrect) setScore(s => s + 1);
-    
+
     setShowFeedback(isCorrect ? 'correct' : 'wrong');
 
     setTimeout(() => {
@@ -35,8 +35,8 @@ export const WhoSaidIt: React.FC<Props> = ({ onComplete, onBack }) => {
       <div className="flex flex-col h-full justify-center items-center text-center space-y-6">
         <h2 className="text-3xl font-festive text-blue-600">All Done!</h2>
         <div className="bg-white p-8 rounded-full shadow-xl w-48 h-48 flex flex-col justify-center items-center border-4 border-blue-100">
-           <span className="text-5xl font-bold text-blue-600">{score}</span>
-           <span className="text-gray-500">out of {WHO_SAID_IT_QUESTIONS.length}</span>
+          <span className="text-5xl font-bold text-blue-600">{score}</span>
+          <span className="text-gray-500">out of {WHO_SAID_IT_QUESTIONS.length}</span>
         </div>
         <p className="text-lg text-gray-700">
           {score === WHO_SAID_IT_QUESTIONS.length ? "You know them perfectly!" : "Not bad!"}
@@ -50,7 +50,7 @@ export const WhoSaidIt: React.FC<Props> = ({ onComplete, onBack }) => {
 
   return (
     <div className="flex flex-col h-full">
-      <div className="flex justify-between items-center mb-6">
+      <div className="flex justify-between items-center mb-3">
         <h2 className="text-xl font-bold text-blue-600">Question {currentIndex + 1}/{WHO_SAID_IT_QUESTIONS.length}</h2>
         <button onClick={onBack} className="text-gray-400">Exit</button>
       </div>
@@ -63,14 +63,14 @@ export const WhoSaidIt: React.FC<Props> = ({ onComplete, onBack }) => {
             <p className="mt-2">It was {question.answer}!</p>
           </div>
         ) : (
-          <div className="bg-white p-8 rounded-2xl shadow-lg border-b-4 border-blue-100 mb-8 min-h-[200px] flex items-center justify-center text-center">
-             <p className="text-xl font-medium text-gray-800">"{question.text}"</p>
+          <div className="bg-white p-6 rounded-2xl shadow-lg border-b-4 border-blue-100 mb-4 flex items-center justify-center text-center">
+            <p className="text-xl font-medium text-gray-800">"{question.text}"</p>
           </div>
         )}
       </div>
 
-      <div className="grid grid-cols-2 gap-4 mt-auto">
-        <button 
+      <div className="grid grid-cols-2 gap-4 mt-2">
+        <button
           onClick={() => handleAnswer('Mom')}
           disabled={!!showFeedback}
           className="bg-pink-100 hover:bg-pink-200 text-pink-700 p-6 rounded-xl flex flex-col items-center transition-all border-2 border-pink-200"
@@ -78,7 +78,7 @@ export const WhoSaidIt: React.FC<Props> = ({ onComplete, onBack }) => {
           <Heart className="w-8 h-8 mb-2 fill-current" />
           <span className="font-bold">Mom (Khushbu)</span>
         </button>
-        <button 
+        <button
           onClick={() => handleAnswer('Dad')}
           disabled={!!showFeedback}
           className="bg-blue-100 hover:bg-blue-200 text-blue-700 p-6 rounded-xl flex flex-col items-center transition-all border-2 border-blue-200"

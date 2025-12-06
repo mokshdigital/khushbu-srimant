@@ -52,10 +52,15 @@ const App: React.FC = () => {
     setActiveGame(null);
   };
 
+  const handleStartOver = () => {
+    setUser(null);
+    setActiveGame(null);
+  };
+
   const renderContent = () => {
     if (!user) return <WelcomeScreen onStart={handleStart} />;
 
-    if (!activeGame) return <GameMenu user={user} onSelectGame={setActiveGame} />;
+    if (!activeGame) return <GameMenu user={user} onSelectGame={setActiveGame} onStartOver={handleStartOver} />;
 
     switch (activeGame) {
       case GameId.MEMORY:

@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
 import { GAMES } from '../constants';
 import { GameId, UserProfile } from '../types';
-import { Trophy, CheckCircle2, Send, Loader2, CheckCircle } from 'lucide-react';
+import { Trophy, CheckCircle2, Send, Loader2, CheckCircle, RotateCcw } from 'lucide-react';
 import { submitScores } from '../services/emailService';
+import { clearUserSession } from '../services/database';
 
 interface Props {
   user: UserProfile;
   onSelectGame: (id: GameId) => void;
+  onStartOver: () => void;
 }
 
-export const GameMenu: React.FC<Props> = ({ user, onSelectGame }) => {
+export const GameMenu: React.FC<Props> = ({ user, onSelectGame, onStartOver }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
   const [showError, setShowError] = useState(false);
@@ -33,17 +35,33 @@ export const GameMenu: React.FC<Props> = ({ user, onSelectGame }) => {
     }
   };
 
+  const handleStartOver = () => {
+    if (confirm('Are you sure you want to start over? This will clear all your progress.')) {
+      clearUserSession();
+      onStartOver();
+    }
+  };
+
   return (
     <div className="h-full flex flex-col">
       {/* Header */}
-      <div className="flex justify-between items-end mb-6">
+      <div className="flex justify-between items-start mb-6">
         <div>
           <h1 className="text-2xl font-bold text-gray-800">Hello, {user.name}!</h1>
           <p className="text-gray-500 text-sm">Ready to win?</p>
         </div>
-        <div className="bg-orange-100 px-4 py-2 rounded-full flex items-center space-x-2 text-orange-700 font-bold border border-orange-200">
-          <Trophy size={18} />
-          <span>{user.score} pts</span>
+        <div className="flex flex-col items-end gap-2">
+          <div className="bg-orange-100 px-4 py-2 rounded-full flex items-center space-x-2 text-orange-700 font-bold border border-orange-200">
+            <Trophy size={18} />
+            <span>{user.score} pts</span>
+          </div>
+          <button
+            onClick={handleStartOver}
+            className="text-xs text-gray-400 hover:text-orange-500 flex items-center gap-1 transition-colors"
+          >
+            <RotateCcw size={12} />
+            <span>Start Over</span>
+          </button>
         </div>
       </div>
 

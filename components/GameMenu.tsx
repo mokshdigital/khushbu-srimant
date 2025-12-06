@@ -51,13 +51,13 @@ export const GameMenu: React.FC<Props> = ({ user, onSelectGame, onStartOver }) =
           <p className="text-gray-500 text-sm">Ready to win?</p>
         </div>
         <div className="flex flex-col items-end gap-2">
-          <div className="bg-orange-100 px-4 py-2 rounded-full flex items-center space-x-2 text-orange-700 font-bold border border-orange-200">
+          <div className="bg-purple-100 px-4 py-2 rounded-full flex items-center space-x-2 text-purple-700 font-bold border border-purple-200">
             <Trophy size={18} />
             <span>{user.score} pts</span>
           </div>
           <button
             onClick={handleStartOver}
-            className="text-xs text-gray-400 hover:text-orange-500 flex items-center gap-1 transition-colors"
+            className="text-xs text-gray-400 hover:text-purple-500 flex items-center gap-1 transition-colors"
           >
             <RotateCcw size={12} />
             <span>Start Over</span>
@@ -67,8 +67,12 @@ export const GameMenu: React.FC<Props> = ({ user, onSelectGame, onStartOver }) =
 
       {/* Grid */}
       <div className="grid grid-cols-2 gap-4 pb-24 overflow-y-auto">
-        {GAMES.map((game) => {
+        {GAMES.map((game, index) => {
           const isCompleted = user.completedGames.includes(game.id);
+          const isLocked = index > 0 && !user.completedGames.includes(GAMES[index - 1].id);
+
+          // Don't show locked games at all
+          if (isLocked) return null;
 
           return (
             <button
@@ -76,7 +80,7 @@ export const GameMenu: React.FC<Props> = ({ user, onSelectGame, onStartOver }) =
               onClick={() => !isCompleted && onSelectGame(game.id)}
               disabled={isCompleted}
               className={`relative p-4 rounded-2xl text-left transition-all duration-200 shadow-sm border border-transparent
-                ${isCompleted ? 'bg-gray-100 opacity-70 cursor-default' : 'bg-white hover:shadow-md hover:scale-[1.02] active:scale-95'}
+                ${isCompleted ? 'bg-gray-100 opacity-70 cursor-default' : 'bg-white hover:shadow-md hover:scale-[1.02] active:scale-95 animate-fadeIn'}
               `}
             >
               <div className={`w-12 h-12 rounded-full flex items-center justify-center mb-3 ${game.color}`}>

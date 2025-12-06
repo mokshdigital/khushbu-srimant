@@ -79,10 +79,10 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex justify-center bg-orange-50/50">
+    <div className="min-h-screen flex justify-center bg-purple-50/30">
       <div className="w-full max-w-md bg-white min-h-screen shadow-2xl relative flex flex-col">
         {/* Festive Header Decoration */}
-        <div className="h-2 bg-gradient-to-r from-orange-400 via-pink-500 to-purple-500"></div>
+        <div className="h-2 bg-gradient-to-r from-purple-400 via-indigo-500 to-teal-500"></div>
 
         <main className="flex-1 p-6 relative overflow-hidden">
           {renderContent()}

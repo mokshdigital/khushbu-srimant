@@ -11,8 +11,8 @@ export const WelcomeScreen: React.FC<Props> = ({ onStart }) => {
   return (
     <div className="flex flex-col items-center justify-center h-full text-center p-6 space-y-6 animate-fadeIn">
       {/* Om Symbol */}
-      <div className="text-6xl text-orange-600 mb-2">
-        ॐ
+      <div className="text-7xl mb-2" style={{ color: '#ea580c' }}>
+        🕉️
       </div>
 
       {/* Ganesha Greeting */}
@@ -39,7 +39,7 @@ export const WelcomeScreen: React.FC<Props> = ({ onStart }) => {
 
       {/* Event Date */}
       <div className="bg-gradient-to-r from-purple-100 to-pink-100 px-6 py-3 rounded-full border-2 border-purple-200">
-        <p className="text-purple-700 font-bold">📅 December 15, 2024</p>
+        <p className="text-purple-700 font-bold">📅 December 06, 2025</p>
       </div>
 
       {/* Name Input */}

@@ -5,8 +5,8 @@ import { Baby, MessageCircle, Star, Pizza, Puzzle } from 'lucide-react';
 export const GAMES: GameConfig[] = [
   {
     id: GameId.MEMORY,
-    title: "Guess the Item",
-    description: "Memorize the baby items before they disappear!",
+    title: "Baby Memory Match",
+    description: "Remember all the baby items in 10 seconds!",
     icon: <Baby size={24} />,
     color: "bg-pink-100 text-pink-600",
   },
@@ -74,23 +74,23 @@ export const CRAVING_QUESTIONS: CravingQuestion[] = [
 ];
 
 export const GARBA_SONGS: GarbaSong[] = [
-  { 
-    id: 1, 
-    hint: "A high-energy song from Loveyatri that is a Navratri anthem.", 
-    options: ["Chogada", "Kamariya", "Rangtaari", "Udi Udi Jaye"], 
-    answer: "Chogada" 
+  {
+    id: 1,
+    hint: "A high-energy song from Loveyatri that is a Navratri anthem.",
+    options: ["Chogada", "Kamariya", "Rangtaari", "Udi Udi Jaye"],
+    answer: "Chogada"
   },
-  { 
-    id: 2, 
-    hint: "A playful Gujarati folk song famous for its 'Sanedo Sanedo' chorus.", 
-    options: ["Sanedo", "Bhai Bhai", "Dholida", "Odhani"], 
-    answer: "Sanedo" 
+  {
+    id: 2,
+    hint: "A playful Gujarati folk song famous for its 'Sanedo Sanedo' chorus.",
+    options: ["Sanedo", "Bhai Bhai", "Dholida", "Odhani"],
+    answer: "Sanedo"
   },
-  { 
-    id: 3, 
-    hint: "Deepika Padukone's fierce Garba performance in Ram-Leela.", 
-    options: ["Nagada Sang Dhol", "Dhol Baaje", "Ghoomar", "Lahu Munh Lag Gaya"], 
-    answer: "Nagada Sang Dhol" 
+  {
+    id: 3,
+    hint: "Deepika Padukone's fierce Garba performance in Ram-Leela.",
+    options: ["Nagada Sang Dhol", "Dhol Baaje", "Ghoomar", "Lahu Munh Lag Gaya"],
+    answer: "Nagada Sang Dhol"
   },
   {
     id: 4,

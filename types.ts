@@ -6,6 +6,7 @@ export enum GameId {
   PREDICTIONS = 'predictions',
   CRAVINGS = 'cravings',
   SCRAMBLE = 'scramble',
+  NAME_SUGGESTIONS = 'name-suggestions',
 }
 
 export interface UserProfile {
@@ -14,6 +15,11 @@ export interface UserProfile {
   score: number;
   completedGames: GameId[];
   predictions?: Record<string, any>;
+  nameSuggestions?: {
+    letter: string;
+    boyName: string;
+    girlName: string;
+  };
 }
 
 export interface GameConfig {

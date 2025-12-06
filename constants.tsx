@@ -1,6 +1,6 @@
 import React from 'react';
 import { GameId, GameConfig, MemoryItem, Question, ScrambleWord, CravingQuestion, GarbaSong } from './types';
-import { Baby, MessageCircle, Star, Pizza, Puzzle } from 'lucide-react';
+import { Baby, MessageCircle, Star, Pizza, Puzzle, Sparkles } from 'lucide-react';
 
 export const GAMES: GameConfig[] = [
   {
@@ -37,6 +37,13 @@ export const GAMES: GameConfig[] = [
     description: "Unscramble these baby words.",
     icon: <Puzzle size={24} />,
     color: "bg-emerald-100 text-emerald-600",
+  },
+  {
+    id: GameId.NAME_SUGGESTIONS,
+    title: "Name Suggestions",
+    description: "Suggest baby names starting with your letter!",
+    icon: <Sparkles size={24} />,
+    color: "bg-rose-100 text-rose-600",
   },
 ];
 

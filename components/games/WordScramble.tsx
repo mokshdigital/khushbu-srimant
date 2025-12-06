@@ -111,7 +111,7 @@ export const WordScramble: React.FC<Props> = ({ onComplete, onBack }) => {
 
   if (finished) {
     return (
-      <div className="flex flex-col h-full overflow-y-auto pb-6">
+      <div className="flex flex-col h-full overflow-y-auto pb-24">
         <div className="flex justify-between items-center mb-4 sticky top-0 bg-white z-10 pb-2">
           <h2 className="text-xl font-bold text-green-600">Results</h2>
           <button onClick={onBack} className="text-gray-400">Exit</button>
@@ -158,7 +158,12 @@ export const WordScramble: React.FC<Props> = ({ onComplete, onBack }) => {
           ))}
         </div>
 
-        <Button fullWidth onClick={() => onComplete(score)}>Collect Points</Button>
+        {/* Sticky Button at Bottom */}
+        <div className="fixed bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-white via-white to-transparent">
+          <div className="max-w-md mx-auto">
+            <Button fullWidth onClick={() => onComplete(score)}>Collect Points</Button>
+          </div>
+        </div>
       </div>
     );
   }

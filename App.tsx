@@ -6,6 +6,7 @@ import { WhoSaidIt } from './components/games/WhoSaidIt';
 import { Predictions } from './components/games/Predictions';
 import { CravingsQuiz } from './components/games/CravingsQuiz';
 import { WordScramble } from './components/games/WordScramble';
+import { NameSuggestions } from './components/games/NameSuggestions';
 import { GameId, UserProfile } from './types';
 import { saveUserLocally, getUserLocally } from './services/database';
 
@@ -44,7 +45,8 @@ const App: React.FC = () => {
         score: prev.score + score,
         completedGames: [...prev.completedGames, activeGame],
         // If the game passes back extra data (like prediction details), save it
-        predictions: activeGame === GameId.PREDICTIONS && data ? data : prev.predictions
+        predictions: activeGame === GameId.PREDICTIONS && data ? data : prev.predictions,
+        nameSuggestions: activeGame === GameId.NAME_SUGGESTIONS && data ? data : prev.nameSuggestions
       };
       return updated;
     });
@@ -73,8 +75,10 @@ const App: React.FC = () => {
         return <CravingsQuiz onComplete={handleGameComplete} onBack={() => setActiveGame(null)} />;
       case GameId.SCRAMBLE:
         return <WordScramble onComplete={handleGameComplete} onBack={() => setActiveGame(null)} />;
+      case GameId.NAME_SUGGESTIONS:
+        return <NameSuggestions onComplete={handleGameComplete} onBack={() => setActiveGame(null)} />;
       default:
-        return <GameMenu user={user} onSelectGame={setActiveGame} />;
+        return <GameMenu user={user} onSelectGame={setActiveGame} onStartOver={handleStartOver} />;
     }
   };
 

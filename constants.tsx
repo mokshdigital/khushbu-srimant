@@ -61,10 +61,16 @@ export const WHO_SAID_IT_QUESTIONS: Question[] = [
 ];
 
 export const SCRAMBLE_WORDS: ScrambleWord[] = [
-  { id: 1, scrambled: "YBBA", answer: "BABY", hint: "Small human" },
-  { id: 2, scrambled: "DPEIAR", answer: "DIAPER", hint: "Poop catcher" },
-  { id: 3, scrambled: "LTATRE", answer: "RATTLE", hint: "Shake it" },
-  { id: 4, scrambled: "LOWLALYU", answer: "LULLABY", hint: "Sleep song" },
+  { id: 1, scrambled: "LTARTE", answer: "RATTLE", hint: "Shake it!" },
+  { id: 2, scrambled: "AEIPDR", answer: "DIAPER", hint: "Essential item" },
+  { id: 3, scrambled: "RBIC", answer: "CRIB", hint: "Baby's bed" },
+  { id: 4, scrambled: "LRTSRLEO", answer: "STROLLER", hint: "For walks" },
+  { id: 5, scrambled: "SSLBGENIS", answer: "BLESSINGS", hint: "Good wishes" },
+  { id: 6, scrambled: "TBOTLE", answer: "BOTTLE", hint: "For feeding" },
+  { id: 7, scrambled: "DYTDE", answer: "TEDDY", hint: "Cuddly friend" },
+  { id: 8, scrambled: "NIKPAN", answer: "NAPKIN", hint: "For messes" },
+  { id: 9, scrambled: "CPFIAIER", answer: "PACIFIER", hint: "Soothes baby" },
+  { id: 10, scrambled: "LBKTANE", answer: "BLANKET", hint: "Keeps warm" },
 ];
 
 export const CRAVING_QUESTIONS: CravingQuestion[] = [

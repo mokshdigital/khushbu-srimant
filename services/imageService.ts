@@ -1,18 +1,22 @@
-import { GoogleGenAI } from "@google/genai";
-
-const apiKey = import.meta.env.VITE_GEMINI_API_KEY || '';
-const ai = apiKey ? new GoogleGenAI({ apiKey }) : null;
-
 /**
- * Generate an image URL for a baby item using Gemini's image generation
- * For now, we'll use a placeholder service since Gemini doesn't directly generate images
- * We'll use a free placeholder image service with the word
+ * Get image URL for a baby item word
+ * Uses local images from the /images folder
  */
 export const generateImage = async (word: string): Promise<string> => {
-    // Use a placeholder image service
-    // You can replace this with actual image generation if needed
-    const encodedWord = encodeURIComponent(word.toLowerCase());
+    // Map words to their image filenames
+    const imageMap: Record<string, string> = {
+        'RATTLE': '/images/rattle.jpg',
+        'DIAPER': '/images/diaper.jpg',
+        'CRIB': '/images/crib.jpg',
+        'STROLLER': '/images/stroller.jpg',
+        'BLESSINGS': '/images/blessings.png',
+        'BOTTLE': '/images/bottle.jpg',
+        'TEDDY': '/images/teddy.jpg',
+        'NAPKIN': '/images/napkin.jpg',
+        'PACIFIER': '/images/pacifier.jpg',
+        'BLANKET': '/images/blanket.jpg',
+    };
 
-    // Using Unsplash for baby-related images
-    return `https://source.unsplash.com/400x300/?baby,${encodedWord}`;
+    // Return the image path for the word, or a fallback
+    return imageMap[word.toUpperCase()] || '/images/placeholder.jpg';
 };

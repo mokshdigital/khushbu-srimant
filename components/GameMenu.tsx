@@ -16,7 +16,8 @@ export const GameMenu: React.FC<Props> = ({ user, onSelectGame, onStartOver }) =
   const [showSuccess, setShowSuccess] = useState(false);
   const [showError, setShowError] = useState(false);
 
-  const hasCompletedGames = user.completedGames.length > 0;
+  // Only show submit button when ALL games are completed
+  const hasCompletedAllGames = user.completedGames.length === GAMES.length;
 
   const handleSubmit = async () => {
     setIsSubmitting(true);
@@ -100,7 +101,7 @@ export const GameMenu: React.FC<Props> = ({ user, onSelectGame, onStartOver }) =
       </div>
 
       {/* Submit Scores Button - Sticky at bottom */}
-      {hasCompletedGames && (
+      {hasCompletedAllGames && (
         <div className="fixed bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-white via-white to-transparent">
           <div className="max-w-md mx-auto">
             <button

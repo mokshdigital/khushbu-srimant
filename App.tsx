@@ -25,6 +25,14 @@ const App: React.FC = () => {
     if (user) saveUserLocally(user);
   }, [user]);
 
+  // Scroll to top whenever the active game changes
+  useEffect(() => {
+    const mainElement = document.querySelector('main');
+    if (mainElement) {
+      mainElement.scrollTop = 0;
+    }
+  }, [activeGame]);
+
   const handleStart = (name: string) => {
     const newUser: UserProfile = {
       id: Date.now().toString(), // Simple ID generation
@@ -84,11 +92,11 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen flex justify-center bg-purple-50/30">
-      <div className="w-full max-w-md bg-white min-h-screen shadow-2xl relative flex flex-col">
+      <div className="w-full max-w-md bg-white shadow-2xl relative flex flex-col" style={{ maxHeight: '80vh' }}>
         {/* Festive Header Decoration */}
         <div className="h-2 bg-gradient-to-r from-purple-400 via-indigo-500 to-teal-500"></div>
 
-        <main className="flex-1 p-6 relative overflow-hidden">
+        <main className="flex-1 p-6 relative overflow-y-auto">
           {renderContent()}
         </main>
       </div>

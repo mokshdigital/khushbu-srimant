@@ -9,9 +9,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     }
 
     try {
-        const { name, gender, weight, date, assignedLetter, boyName, girlName } = req.body;
+        const { name, gender, weight, date, looksLike, advice, assignedLetter, boyName, girlName } = req.body;
 
-        if (!name || !gender || !weight || !date || !assignedLetter || !boyName || !girlName) {
+        if (!name || !gender || !weight || !date || !looksLike || !advice || !assignedLetter || !boyName || !girlName) {
             return res.status(400).json({ error: 'Missing required fields' });
         }
 
@@ -34,6 +34,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             month: 'long',
             day: 'numeric'
         })}</li>
+        <li><strong>Will Look Like:</strong> ${looksLike}</li>
+        <li><strong>Advice for Parents:</strong> ${advice}</li>
       </ul>
       
       <h3>✨ Name Suggestions</h3>
@@ -62,6 +64,8 @@ BABY PREDICTIONS
 - Gender: ${gender}
 - Weight: ${weight} lbs
 - Birth Date: ${new Date(date).toLocaleDateString()}
+- Will Look Like: ${looksLike}
+- Advice for Parents: ${advice}
 
 NAME SUGGESTIONS
 - Assigned Letter: ${assignedLetter}

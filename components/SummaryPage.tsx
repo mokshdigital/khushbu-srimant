@@ -8,6 +8,8 @@ interface SummaryData {
     gender: string;
     weight: string;
     date: string;
+    looksLike: string;
+    advice: string;
     assignedLetter: string;
     boyName: string;
     girlName: string;
@@ -23,6 +25,8 @@ export const SummaryPage: React.FC<Props> = ({ onBack }) => {
         gender: '',
         weight: '',
         date: '',
+        looksLike: '',
+        advice: '',
         assignedLetter: '',
         boyName: '',
         girlName: '',
@@ -72,6 +76,8 @@ export const SummaryPage: React.FC<Props> = ({ onBack }) => {
                     gender: '',
                     weight: '',
                     date: '',
+                    looksLike: '',
+                    advice: '',
                     assignedLetter: formData.assignedLetter,
                     boyName: '',
                     girlName: '',
@@ -90,6 +96,8 @@ export const SummaryPage: React.FC<Props> = ({ onBack }) => {
         formData.gender &&
         formData.weight.trim() &&
         formData.date &&
+        formData.looksLike.trim() &&
+        formData.advice.trim() &&
         formData.boyName.trim() &&
         formData.girlName.trim();
 
@@ -146,8 +154,8 @@ export const SummaryPage: React.FC<Props> = ({ onBack }) => {
                                     type="button"
                                     onClick={() => setFormData({ ...formData, gender: 'Boy' })}
                                     className={`p-3 rounded-xl font-semibold transition-all ${formData.gender === 'Boy'
-                                            ? 'bg-blue-500 text-white border-2 border-blue-600'
-                                            : 'bg-white text-gray-700 border-2 border-gray-200'
+                                        ? 'bg-blue-500 text-white border-2 border-blue-600'
+                                        : 'bg-white text-gray-700 border-2 border-gray-200'
                                         }`}
                                 >
                                     👦 Boy
@@ -156,8 +164,8 @@ export const SummaryPage: React.FC<Props> = ({ onBack }) => {
                                     type="button"
                                     onClick={() => setFormData({ ...formData, gender: 'Girl' })}
                                     className={`p-3 rounded-xl font-semibold transition-all ${formData.gender === 'Girl'
-                                            ? 'bg-pink-500 text-white border-2 border-pink-600'
-                                            : 'bg-white text-gray-700 border-2 border-gray-200'
+                                        ? 'bg-pink-500 text-white border-2 border-pink-600'
+                                        : 'bg-white text-gray-700 border-2 border-gray-200'
                                         }`}
                                 >
                                     👧 Girl
@@ -190,6 +198,36 @@ export const SummaryPage: React.FC<Props> = ({ onBack }) => {
                                 value={formData.date}
                                 onChange={(e) => setFormData({ ...formData, date: e.target.value })}
                                 className="w-full p-3 rounded-xl border-2 border-amber-200 focus:border-amber-500 focus:outline-none"
+                                required
+                            />
+                        </div>
+
+                        {/* Who will baby look like */}
+                        <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-2">
+                                Who will the baby look like? *
+                            </label>
+                            <input
+                                type="text"
+                                value={formData.looksLike}
+                                onChange={(e) => setFormData({ ...formData, looksLike: e.target.value })}
+                                placeholder="e.g., Mom, Dad, or Both"
+                                className="w-full p-3 rounded-xl border-2 border-amber-200 focus:border-amber-500 focus:outline-none"
+                                required
+                            />
+                        </div>
+
+                        {/* Advice for Parents */}
+                        <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-2">
+                                Advice for Parents *
+                            </label>
+                            <textarea
+                                value={formData.advice}
+                                onChange={(e) => setFormData({ ...formData, advice: e.target.value })}
+                                placeholder="Share your wisdom and advice..."
+                                rows={3}
+                                className="w-full p-3 rounded-xl border-2 border-amber-200 focus:border-amber-500 focus:outline-none resize-none"
                                 required
                             />
                         </div>

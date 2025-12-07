@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { Button } from './ui/Button';
+import { FileText } from 'lucide-react';
 
 interface Props {
   onStart: (name: string) => void;
+  onSummary: () => void;
 }
 
-export const WelcomeScreen: React.FC<Props> = ({ onStart }) => {
+export const WelcomeScreen: React.FC<Props> = ({ onStart, onSummary }) => {
   const [name, setName] = useState('');
 
   return (
@@ -61,6 +63,15 @@ export const WelcomeScreen: React.FC<Props> = ({ onStart }) => {
       >
         Let's Play! 🎮
       </Button>
+
+      {/* Summary Form Button */}
+      <button
+        onClick={onSummary}
+        className="w-full max-w-xs flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-white border-2 border-purple-300 text-purple-700 font-semibold hover:bg-purple-50 transition-colors"
+      >
+        <FileText size={20} />
+        <span>Fill Summary Form</span>
+      </button>
 
       <div className="mt-4 text-sm text-gray-400">
         Scan • Play • Win • Celebrate 🎉

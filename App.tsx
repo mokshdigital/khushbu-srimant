@@ -7,12 +7,14 @@ import { Predictions } from './components/games/Predictions';
 import { CravingsQuiz } from './components/games/CravingsQuiz';
 import { WordScramble } from './components/games/WordScramble';
 import { NameSuggestions } from './components/games/NameSuggestions';
+import { SummaryPage } from './components/SummaryPage';
 import { GameId, UserProfile } from './types';
 import { saveUserLocally, getUserLocally } from './services/database';
 
 const App: React.FC = () => {
   const [user, setUser] = useState<UserProfile | null>(null);
   const [activeGame, setActiveGame] = useState<GameId | null>(null);
+  const [showSummary, setShowSummary] = useState(false);
 
   // Load existing user session on mount
   useEffect(() => {
@@ -68,7 +70,12 @@ const App: React.FC = () => {
   };
 
   const renderContent = () => {
-    if (!user) return <WelcomeScreen onStart={handleStart} />;
+    // Show summary page if requested
+    if (showSummary) {
+      return <SummaryPage onBack={() => setShowSummary(false)} />;
+    }
+
+    if (!user) return <WelcomeScreen onStart={handleStart} onSummary={() => setShowSummary(true)} />;
 
     if (!activeGame) return <GameMenu user={user} onSelectGame={setActiveGame} onStartOver={handleStartOver} />;
 

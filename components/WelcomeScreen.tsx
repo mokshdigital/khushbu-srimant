@@ -44,8 +44,8 @@ export const WelcomeScreen: React.FC<Props> = ({ onStart, onSummary }) => {
         <p className="text-purple-700 font-bold">📅 December 06, 2025</p>
       </div>
 
-      {/* Name Input - Hidden */}
-      {/* <div className="w-full max-w-xs">
+      {/* Name Input */}
+      <div className="w-full max-w-xs">
         <label className="block text-left text-sm font-semibold text-gray-600 mb-2">Your Name</label>
         <input
           type="text"
@@ -54,16 +54,16 @@ export const WelcomeScreen: React.FC<Props> = ({ onStart, onSummary }) => {
           placeholder="Enter your name..."
           className="w-full p-4 rounded-xl border-2 border-purple-200 focus:border-purple-500 focus:outline-none shadow-sm text-lg text-center"
         />
-      </div> */}
+      </div>
 
-      {/* Let's Play Button - Hidden */}
-      {/* <Button
+      {/* Let's Play Button */}
+      <Button
         fullWidth
         disabled={!name.trim()}
         onClick={() => onStart(name)}
       >
         Let's Play! 🎮
-      </Button> */}
+      </Button>
 
       {/* Summary Form Button */}
       <button
